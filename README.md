@@ -1,6 +1,6 @@
 # CS 128 Vim + Quick Tab
 
-A small Chrome extension that enables standard Vim editing in CS 128 Programming Activities. It attaches to the site's existing Ace editors and starts in **Normal** mode. Every file tab in an activity is covered.
+A  Chrome extension that enables standard Vim editing in CS 128 Programming Activities as well quick tab switching with "Alt + ]" & "Alt + [" for Windows and "Option + ]" & "Option + [" for Mac. It attaches to the site's existing Ace editors and starts in **Normal** mode. Every file tab in an activity is covered.
 
 ## Install in Chrome
 
@@ -50,25 +50,5 @@ Vim runs only in activity workspaces on `https://cs128.org/*`. Smaller runnable 
 - After installing, reloading the extension, disabling it, or removing it, refresh the lesson. Chrome does not undo already injected page scripts when an extension is disabled.
 - If the status says **-- UNAVAILABLE --**, ordinary editing remains available. Toggle Vim off/on to retry. A future CS 128 editor update may require a compatibility update.
 - If no switch appears, check that you're signed in and looking at an editable Programming Activity, and that Chrome allows the extension on `cs128.org`.
-- The live inspection confirmed the current activity action row and the site's `escapeToTabs` command. Automated execution and mouse/keyboard tests use the local Ace fixture; the updated extension still needs a final check in your installed Chrome session.
-
-## Development and tests
-
-Requires Node.js 20+ and npm. Python 3 is needed only to create the optional release ZIP.
-
-```sh
-npm ci --ignore-scripts
-npm run build
-npm run check
-npm run dev
-```
-
-Open `http://127.0.0.1:8128` and click **Run integration tests**. The fixture contains three-file activities, delayed initialization, editor replacement, the site's Escape shortcut, and mock Save/Run/Grade actions. It never contacts CS 128 or submits coursework. **Expand to fullscreen** moves the workspace into an overlay just like CS 128; the suite verifies entering and leaving it. It also checks relative gutter numbers while moving the cursor, independent Vim/number switches, and restoring the original line-number setting during navigation.
-
-The integration suite also checks tab shortcuts with both Windows and Mac-style key events, all Vim modes, wraparound, reordered tabs, delayed tab activation, fullscreen, and focus outside the editor.
-
-`npm run package` produces `dist/cs128-vim-1.4.0.zip`.
-
-The readable integration source is `src/content.js`; `extension/content.js` is generated and committed so the extension loads without a build. `scripts/build.mjs` bundles the pinned `ace-builds@1.44.0` Vim module under a private Ace module name, delaying registration until the site's Ace is initialized. It never replaces the site's Ace runtime. The manifest uses a `MAIN` world content script in Chrome 111+ and requests no extension API permissions, storage, background worker, or network access beyond its site match.
 
 All extension code is local. There is no analytics, backend, credential access, or collection of coursework. See the bundled third-party notices and Ace license.
