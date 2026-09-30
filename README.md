@@ -1,4 +1,4 @@
-# CS 128 Vim
+# CS 128 Vim + Quick Tab
 
 A small Chrome extension that enables standard Vim editing in CS 128 Programming Activities. It attaches to the site's existing Ace editors and starts in **Normal** mode. Every file tab in an activity is covered.
 
