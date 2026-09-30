@@ -1,0 +1,115 @@
+.cs128-vim-controls {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    margin-inline-start: auto;
+    color: inherit;
+}
+.cs128-vim-controls--fallback {
+    margin-block-start: 0.5rem;
+}
+.cs128-editor-toggle.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45em;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.cs128-editor-toggle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+.cs128-vim-switch {
+    position: relative;
+    display: inline-block;
+    flex: none;
+    width: 1.9em;
+    height: 1.1em;
+    border: 1px solid currentColor;
+    border-radius: 1em;
+    background: transparent;
+    box-sizing: border-box;
+}
+.cs128-vim-switch::after {
+    content: "";
+    position: absolute;
+    top: 0.12em;
+    left: 0.12em;
+    width: 0.72em;
+    height: 0.72em;
+    border-radius: 50%;
+    background: currentColor;
+}
+.cs128-editor-toggle[aria-checked="true"] .cs128-vim-switch {
+    background: #23734a;
+    border-color: #7dcba2;
+    color: #fff;
+}
+.cs128-editor-toggle[aria-checked="true"] .cs128-vim-switch::after {
+    left: auto;
+    right: 0.12em;
+}
+.cs128-vim-mode {
+    font:
+        600 0.82em/1.5 ui-monospace,
+        SFMono-Regular,
+        Consolas,
+        monospace;
+    white-space: nowrap;
+    margin-right: 0.8rem;
+}
+
+/* Use the activity's width, including fullscreen, rather than the viewport. */
+.cs128-vim-action-row {
+    container: cs128-actions / inline-size;
+}
+.cs128-vim-controls { position: relative; }
+.cs128-vim-panel {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+.cs128-vim-more.btn { display: none; }
+.cs128-vim-more-icon {
+    transform: scale(0.8);
+}
+.cs128-vim-more:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+@container cs128-actions (max-width: 680px) {
+    .cs128-vim-more.btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.12em;
+        cursor: pointer;
+    }
+    .cs128-vim-panel {
+        display: none;
+        position: absolute;
+        inset-inline-end: 0;
+        bottom: calc(100% + 0.5rem);
+        z-index: 1000;
+        min-width: 11rem;
+        max-width: calc(100vw - 2rem);
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        padding: 0.65rem;
+        border: 1px solid var(--bs-border-color, #69717d);
+        border-radius: 0.5rem;
+        background: var(--bs-body-bg, Canvas);
+        color: var(--bs-body-color, CanvasText);
+        box-shadow: 0 4px 18px #0004;
+    }
+    .cs128-vim-menu-open .cs128-vim-panel { display: flex; }
+    .cs128-vim-panel .cs128-editor-toggle { justify-content: space-between; }
+    .cs128-vim-panel .cs128-vim-mode { margin: 0; text-align: center; }
+}

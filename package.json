@@ -1,0 +1,16 @@
+{
+  "name": "cs128-vim",
+  "version": "1.4.0",
+  "private": true,
+  "type": "module",
+  "description": "Vim keybindings for CS 128 Programming Activities",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check src/content.js && node --check extension/content.js && node --test tests/package.test.mjs",
+    "dev": "node scripts/serve.mjs",
+    "package": "npm run build && python3 scripts/package.py"
+  },
+  "devDependencies": {
+    "ace-builds": "1.44.0"
+  }
+}

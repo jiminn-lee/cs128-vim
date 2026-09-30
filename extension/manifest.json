@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "CS 128 Vim",
+  "version": "1.4.0",
+  "description": "Standard Vim keybindings in CS 128 Programming Activities. Save, Run, and Grade stay under your control.",
+  "minimum_chrome_version": "111",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://cs128.org/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle",
+      "world": "MAIN",
+      "all_frames": false
+    }
+  ]
+}

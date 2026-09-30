@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS 128 Vim — Local test fixture</title>
+  <link rel="stylesheet" href="/extension/content.css">
+  <style>
+    :root { color-scheme: dark; font: 15px/1.5 system-ui; background: #17202b; color: #e7eaf0; }
+    body { max-width: 1080px; margin: 32px auto; padding: 0 20px; }
+    h1 { margin-bottom: 4px; } p { color: #b6c1ce; }
+    button, input { font: inherit; margin: 4px; padding: 5px 10px; }
+    .activity-light-buttons { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+    .btn.activity-light-btn { margin: 0; padding: .3rem .7rem; border: 1px solid #485263; border-radius: .3rem; font: 600 .82rem/1.5 system-ui; color: #f1f4ff; background: #394250; }
+    .btn.btn-core-run { background: #4c84ff; border-color: #4070df; color: #121c32; }
+    .btn.btn-core-grade { background: #38a86c; border-color: #33835a; }
+    .btn.btn-core-history { background: #363e58; border-color: #4b557c; }
+    section { margin: 20px 0; padding: 18px; border: 1px solid #566276; border-radius: 8px; background: #1e2938; }
+    .editor { height: 200px; font-size: 15px; }
+    .tab-pane:not(.active) { display: none; }
+    [role=tab][aria-selected=true] { outline: 2px solid #76b8fb; }
+    .activity-fullscreen-overlay { position: fixed; inset: 0; padding: 30px; overflow: auto; background: #1e2938; z-index: 100; }
+    output { display: block; white-space: pre-wrap; font: 12px/1.5 monospace; }
+    #results { white-space: pre-wrap; } .pass { color: #9de2bb; } .fail { color: #ffabab; }
+  </style>
+</head>
+<body>
+  <h1>CS 128 Vim</h1>
+  <p>Local Ace integration fixture. All Save, Run, and Grade actions stay on this page.</p>
+  <button id="self-test">Run integration tests</button>
+  <button id="add-activity">Add delayed activity</button>
+  <button id="duplicate">Load extension again</button>
+  <button id="navigate">Simulate lesson navigation</button>
+  <label>Unrelated input <input id="ordinary-input" aria-label="Unrelated input"></label>
+  <pre id="results" role="status">Tests have not run.</pre>
+  <main id="activities"></main>
+  <section><h2>Runnable example — ordinary editing</h2><div id="runnable" class="editor activity-light-editor"></div></section>
+  <script src="/node_modules/ace-builds/src-noconflict/ace.js"></script>
+  <script src="/tests/fixture.js"></script>
+  <script src="/extension/content.js"></script>
+  <script src="/tests/integration.js"></script>
+</body>
+</html>
