@@ -2,6 +2,8 @@
 
 A  Chrome extension that enables standard Vim editing in CS 128 Programming Activities as well quick tab switching with "Alt + ]" & "Alt + [" for Windows and "Option + ]" & "Option + [" for Mac. It attaches to the site's existing Ace editors and starts in **Normal** mode. Every file tab in an activity is covered.
 
+![Example screenshot](screenshot.png)
+
 ## Install in Chrome (Mac and Windows)
 
 1. Open the [latest release](https://github.com/jiminn-lee/cs128-vim/releases/latest). Under **Assets**, download the file named `cs128-vim-<version>.zip`, such as `cs128-vim-1.4.0.zip`.
